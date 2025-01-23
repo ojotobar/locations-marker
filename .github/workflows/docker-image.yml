@@ -16,5 +16,5 @@ jobs:
       run: docker build -t blueclikk/locations-marker:live -f LocationsMarker.API/Dockerfile .
     - name: Push The Image To Docker Hub
       run: |
-        docker login -u blueclikk -p ${{ secrets.BLUE_CLICK_HUB_TOKEN }}
+        docker login -u blueclikk -p ${{ secrets.Locations_Marker_Secret }}
         docker push blueclikk/locations-marker:live
