@@ -1,0 +1,6 @@
+@LocationsMarker.API_HostAddress = http://localhost:5287
+
+GET {{LocationsMarker.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

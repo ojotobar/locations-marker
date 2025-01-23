@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationsMarker.API", "LocationsMarker.API\LocationsMarker.API.csproj", "{25191C7B-B921-4A7A-A7C4-81C4BD70ED0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationMarker.Data", "LocationMarker.Data\LocationMarker.Data.csproj", "{62AE9ECB-B7CD-4F24-B4F6-6A9A8DCBFAA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationMarker.Service", "LocationMarker.Service\LocationMarker.Service.csproj", "{A7145CFD-BBDC-42FB-8138-0698FB9512CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationMarker.Shared", "LocationMarker.Shared\LocationMarker.Shared.csproj", "{C7B0C734-5F0B-459D-B27F-1493C432920E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationMarker.Entities", "LocationMarker.Entities\LocationMarker.Entities.csproj", "{AE0D11A5-9563-48A8-BC23-EAFF99A008B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89D499F9-CA28-4ECD-9D27-C1594F82488B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25191C7B-B921-4A7A-A7C4-81C4BD70ED0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25191C7B-B921-4A7A-A7C4-81C4BD70ED0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25191C7B-B921-4A7A-A7C4-81C4BD70ED0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25191C7B-B921-4A7A-A7C4-81C4BD70ED0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62AE9ECB-B7CD-4F24-B4F6-6A9A8DCBFAA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62AE9ECB-B7CD-4F24-B4F6-6A9A8DCBFAA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62AE9ECB-B7CD-4F24-B4F6-6A9A8DCBFAA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62AE9ECB-B7CD-4F24-B4F6-6A9A8DCBFAA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7145CFD-BBDC-42FB-8138-0698FB9512CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7145CFD-BBDC-42FB-8138-0698FB9512CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7145CFD-BBDC-42FB-8138-0698FB9512CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7145CFD-BBDC-42FB-8138-0698FB9512CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B0C734-5F0B-459D-B27F-1493C432920E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B0C734-5F0B-459D-B27F-1493C432920E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B0C734-5F0B-459D-B27F-1493C432920E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B0C734-5F0B-459D-B27F-1493C432920E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0D11A5-9563-48A8-BC23-EAFF99A008B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0D11A5-9563-48A8-BC23-EAFF99A008B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0D11A5-9563-48A8-BC23-EAFF99A008B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0D11A5-9563-48A8-BC23-EAFF99A008B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F836A5C8-0416-4B72-8046-E1FD6ACFCD61}
+	EndGlobalSection
+EndGlobal
