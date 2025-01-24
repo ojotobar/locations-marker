@@ -55,7 +55,7 @@ namespace LocationsMarker.API.Extensions
                         await repository.ApiKey.EditAsync(k => k.Id.Equals(existingKey.Id), existingKey);
                         logger.LogInformation("Updated the ApiKey with the newly generated key");
 
-                        await AlertAdmin(serviceProvider, logger, adminEmail, newKey, false);
+                        await AlertAdmin(serviceProvider, logger, adminEmail!, newKey, false);
                     }
                     else
                     {
@@ -71,7 +71,7 @@ namespace LocationsMarker.API.Extensions
                     };
                     await repository.ApiKey.AddAsync(newKeyEntity);
 
-                    await AlertAdmin(serviceProvider, logger, adminEmail, newKeyEntity.ApiKey, true);
+                    await AlertAdmin(serviceProvider, logger, adminEmail!, newKeyEntity.ApiKey, true);
                     logger.LogInformation("Added a new ApiKey to the Database...");
                 }
             }
