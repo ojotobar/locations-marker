@@ -19,7 +19,7 @@ namespace LocationsMarker.API.Filters
                 return false;
             }
 
-            var authvalues = System.Net.Http.Headers.AuthenticationHeaderValue.Parse(header);
+            var authvalues = System.Net.Http.Headers.AuthenticationHeaderValue.Parse(header!);
 
             if (!"Basic".Equals(authvalues.Scheme, StringComparison.InvariantCultureIgnoreCase))
             {

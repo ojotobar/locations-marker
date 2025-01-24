@@ -5,7 +5,6 @@ using LocationsMarker.API.Extensions;
 using LocationsMarker.API.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Mongo.Common.MongoDB;
-using RedisCache.Common.Repository.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 AppConfigurations.ConfigureLogging(builder.Configuration["ELK:Connection"]!);
@@ -16,8 +15,6 @@ builder.Services.ConfigureController();
 builder.Services.ConfigureMongoSettings(config["MongoConnection:ConnString"]!, config["MongoConnection:Database"]!);
 var conn = builder.Configuration["Redis:Connection"];
 builder.Services.ConfigureHttpClient(config);
-builder.Services.ConfigureRedis(config["Redis:Connection"]!)
-    .ConfigureCacheRepository();
 builder.Services.ConfigureMailJet(config["MailJet:ApiKey"]!, config["MailJet:ApiSecret"]!, 
     config["MailJet:Email"]!, "Location Marker API");
 builder.Services.AddApiVersioning(opt =>

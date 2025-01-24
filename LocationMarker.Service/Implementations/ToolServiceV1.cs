@@ -8,18 +8,14 @@ using LocationMarker.Shared.Mapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using RedisCache.Common.Repository;
 using System.Globalization;
 
 namespace LocationMarker.Service.Implementations
 {
-    public class ToolServiceV1(IRepositoryManager repository, ILogger<ToolServiceV1> logger, 
-        IConfiguration configuration, ICacheCommonRepository redisDb) : IToolServiceV1
+    public class ToolServiceV1(IRepositoryManager repository, ILogger<ToolServiceV1> logger) : IToolServiceV1
     {
         private readonly IRepositoryManager _repository = repository;
         private readonly ILogger<ToolServiceV1> _logger = logger;
-        private readonly IConfiguration _configuration = configuration;
-        private readonly ICacheCommonRepository _redisDb = redisDb;
 
         public async Task RunLocationDataLoad(char countriesInitial, PerformContext context)
         {
@@ -36,8 +32,8 @@ namespace LocationMarker.Service.Implementations
                     var countryDetailResponse = await _repository.ClientLocation.GetCountryAsync(countryRecord.ISO2);
                     if (countryDetailResponse.Success)
                     {
-                        var country = ObjectMapper.MapCountry(countryDetailResponse.Country);
-                        country.TimeZones = ParseTimeZones(countryDetailResponse.Country.TimeZones);
+                        var country = ObjectMapper.MapCountry(countryDetailResponse.Country!);
+                        country.TimeZones = ParseTimeZones(countryDetailResponse.Country!.TimeZones);
                         var recordExists = await _repository.Country.RecordExists(x => x.ExtId == country.ExtId);
                         var stateExists = await _repository.State.RecordExists(s => s.CountryExtId == country.ExtId);
 
@@ -57,7 +53,7 @@ namespace LocationMarker.Service.Implementations
                                         if (stateResponse.Success)
                                         {
                                             context.WriteLine($"Getting details for {stateRecord.Name}, {countryRecord.Name} succeeded.");
-                                            var state = ObjectMapper.MapState(country.Id, stateResponse.State);
+                                            var state = ObjectMapper.MapState(country.Id, stateResponse.State!);
 
                                             // Getting cities for the state
                                             var citiesResponse = await _repository.ClientLocation.GetCitiesAsync(countryRecord.ISO2, stateRecord.ISO2);
