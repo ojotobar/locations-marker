@@ -77,7 +77,7 @@ namespace LocationsMarker.API.Extensions
                     StringComparer = StringComparer.Ordinal,
                     IdType = InMemoryStorageIdType.Guid
                 })
-                .WithJobExpirationTimeout(TimeSpan.FromMinutes(5))
+                .WithJobExpirationTimeout(TimeSpan.FromHours(5))
                 .UseConsole()
                 //.UseRecurringJob(typeof(IRecurringJobService))
                 .UseFilter(provider.GetRequiredService<HangfireLogAttribute>())

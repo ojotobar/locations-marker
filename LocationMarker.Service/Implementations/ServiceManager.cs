@@ -1,11 +1,13 @@
-﻿using LocationMarker.Data.Interfaces;
+﻿using LocationMarker.Data.Implementations;
+using LocationMarker.Data.Interfaces;
 using LocationMarker.Service.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace LocationMarker.Service.Implementations
 {
-    public class ServiceManager(IRepositoryManager repository, ILogger<ToolServiceV1> toolLogger) : IServiceManager
+    public class ServiceManager(IRepositoryManager repository, 
+        ILogger<ToolServiceV1> toolLogger) : IServiceManager
     {
         private readonly Lazy<ILocationService> _locationService = new(() =>
             new LocationService(repository));
