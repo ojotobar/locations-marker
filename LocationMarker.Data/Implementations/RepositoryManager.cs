@@ -1,12 +1,14 @@
 ﻿using LocationMarker.Data.Interfaces;
+using Microsoft.Extensions.Logging;
 using Mongo.Common.Settings;
 
 namespace LocationMarker.Data.Implementations
 {
-    public class RepositoryManager(HttpClient httpClient, MongoDbSettings settings) : IRepositoryManager
+    public class RepositoryManager(HttpClient httpClient, MongoDbSettings settings,
+        ILogger<LocationFromClientRepository> clientLogger) : IRepositoryManager
     {
         private readonly Lazy<ILocationFromClientRepository> _locationFromClientRepository = new(() =>
-            new LocationFromClientRepository(httpClient));
+            new LocationFromClientRepository(httpClient, clientLogger));
         private readonly Lazy<ICityRepository> _cityRepository = new(() =>
             new CityRepository(settings));
         private readonly Lazy<ICountryRepository> _countryRepository = new(() =>
