@@ -3,7 +3,6 @@ using LocationMarker.Entities.ClientModels;
 using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Net.Http.Json;
-using System.Web.Http;
 
 namespace LocationMarker.Data.Implementations
 {
@@ -23,8 +22,9 @@ namespace LocationMarker.Data.Implementations
             }
             else
             {
-                var error = await response.Content.ReadAsAsync<HttpError>();
-                _logger.LogError(error.Message, error);
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                var error = $"Error: {response.StatusCode} - {errorMessage}";
+                _logger.LogError(error);
                 return ([], false, response.StatusCode);
             }
         }
@@ -39,8 +39,9 @@ namespace LocationMarker.Data.Implementations
             }
             else
             {
-                var error = await response.Content.ReadAsAsync<HttpError>();
-                _logger.LogError(error.Message, error);
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                var error = $"Error: {response.StatusCode} - {errorMessage}";
+                _logger.LogError(error);
                 return (null, false, response.StatusCode);
             }
         }
@@ -55,8 +56,9 @@ namespace LocationMarker.Data.Implementations
             }
             else
             {
-                var error = await response.Content.ReadAsAsync<HttpError>();
-                _logger.LogError(error.Message, error);
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                var error = $"Error: {response.StatusCode} - {errorMessage}";
+                _logger.LogError(error);
                 return ([], false, response.StatusCode);
             }
         }
@@ -71,8 +73,9 @@ namespace LocationMarker.Data.Implementations
             }
             else
             {
-                var error = await response.Content.ReadAsAsync<HttpError>();
-                _logger.LogError(error.Message, error);
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                var error = $"Error: {response.StatusCode} - {errorMessage}";
+                _logger.LogError(error);
                 return (null, false, response.StatusCode);
             }
         }
@@ -87,8 +90,9 @@ namespace LocationMarker.Data.Implementations
             }
             else
             {
-                var error = await response.Content.ReadAsAsync<HttpError>();
-                _logger.LogError(error.Message, error);
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                var error = $"Error: {response.StatusCode} - {errorMessage}";
+                _logger.LogError(error);
                 return ([], false, response.StatusCode);
             }
         }
