@@ -16,7 +16,7 @@ namespace LocationMarker.Data.Implementations
         public async Task<(List<CountryFromClient> Countries, bool Success, HttpStatusCode Code)> GetCountriesAsync()
         {
             var response = await _httpClient.GetAsync("");
-            if (!response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 var countries = await response.Content.ReadFromJsonAsync<List<CountryFromClient>>();
                 return (countries ?? [], true, HttpStatusCode.OK);
