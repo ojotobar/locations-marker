@@ -12,6 +12,7 @@ AppConfigurations.ConfigureLogging(builder.Configuration["ELK:Connection"]!);
 // Add services to the container.
 var config = builder.Configuration;
 builder.Services.ConfigureController();
+builder.Services.ConfigureCors();
 builder.Services.ConfigureMongoSettings(config["MongoConnection:ConnString"]!, config["MongoConnection:Database"]!);
 var conn = builder.Configuration["Redis:Connection"];
 builder.Services.ConfigureHttpClient(config);
@@ -50,5 +51,6 @@ app.UseHangfireDashboard("/jobs", new DashboardOptions
 await app.SeedSystemData(logger);
 await app.SetConstants();
 app.MapControllers();
+app.UseCors("CorsPolicy");
 
 app.Run();
