@@ -56,6 +56,14 @@ namespace LocationsMarker.API.Extensions
                 });
             });
 
+        public static void ConfigureCors(this IServiceCollection services) =>
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
         public static void ConfigureServices(this IServiceCollection services)
         {
             services.AddSingleton<HangfireLogAttribute>();
