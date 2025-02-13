@@ -68,5 +68,48 @@ namespace LocationsMarker.API.Controllers.V1
 
             return Ok(baseResult.GetResult<List<City>>());
         }
+
+        /// <summary>
+        /// Gets a country by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        ///<response code="200">OK</response>
+        ///<response code="404">Not Found</response>
+        ///<response code="500">Server error</response>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType (StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("country/{id}")]
+        public async Task<IActionResult> GetCountry([FromRoute] Guid id)
+        {
+            var baseResult = await _service.Location.GetCountry(id);
+            if (!baseResult.Success)
+                return ProcessError(baseResult);
+
+            return Ok(baseResult.GetResult<Country>());
+        }
+
+        /// <summary>
+        /// Gets a State by Id
+        /// </summary>
+        /// <param name="countryId"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        ///<response code="200">OK</response>
+        ///<response code="404">Not Found</response>
+        ///<response code="500">Server error</response>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("country/{countryId}/state/{id}")]
+        public async Task<IActionResult> GetState([FromRoute] Guid countryId, [FromRoute] Guid id)
+        {
+            var baseResult = await _service.Location.GetState(countryId, id);
+            if (!baseResult.Success)
+                return ProcessError(baseResult);
+
+            return Ok(baseResult.GetResult<State>());
+        }
     }
 }
