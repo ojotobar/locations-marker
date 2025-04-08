@@ -83,7 +83,7 @@ namespace LocationsMarker.API.Extensions
                 Hi Admin,<br/>
                 This is notify you that Location Marker API Key have been expired and a new one generate.<br/>
                 Below is your new API Key to access sensitive resource on the Location Marker API.<br/>
-                {key}.<br/>
+                <span style=""background:#7a7a7a;color:#efefef;padding:5px;"">{key}</span>.<br/>
                 Please keep it secret and delete this message ASAP.<br/>
                 Regards.<br/>
                 Location Marker Team.<br/>
