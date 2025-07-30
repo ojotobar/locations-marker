@@ -48,8 +48,6 @@ app.UseHangfireDashboard("/jobs", new DashboardOptions
 {
     Authorization = [ new HangfireAuthorizationFilter(builder.Configuration) ],
 });
-await app.SeedSystemData(logger);
-await app.SetConstants();
 app.MapControllers();
 app.UseCors("CorsPolicy");
 
