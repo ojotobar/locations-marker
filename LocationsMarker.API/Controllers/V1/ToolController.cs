@@ -21,7 +21,7 @@ namespace LocationsMarker.API.Controllers.V1
         ///<response code="200">OK</response>
         ///<response code="401">Unauthorized</response>
         ///<response code="500">Server error</response>
-        [PermissionFilter]
+        [PostPermission]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

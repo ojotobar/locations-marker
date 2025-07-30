@@ -1,6 +1,7 @@
 ﻿using Hangfire;
 using Hangfire.Console;
 using Hangfire.InMemory;
+using Hangfire.RecurringJobExtensions;
 using LocationMarker.Data.Implementations;
 using LocationMarker.Data.Interfaces;
 using LocationMarker.Service.Implementations;
@@ -69,6 +70,7 @@ namespace LocationsMarker.API.Extensions
             services.AddSingleton<HangfireLogAttribute>();
             services.AddScoped<IRepositoryManager, RepositoryManager>();
             services.AddScoped<IServiceManager, ServiceManager>();
+            services.AddScoped<IRecurringJobService, RecurringJobService>();
         }
 
         public static void ConfigureHangfireClient(this IServiceCollection services)
@@ -87,7 +89,7 @@ namespace LocationsMarker.API.Extensions
                 })
                 .WithJobExpirationTimeout(TimeSpan.FromHours(5))
                 .UseConsole()
-                //.UseRecurringJob(typeof(IRecurringJobService))
+                .UseRecurringJob(typeof(IRecurringJobService))
                 .UseFilter(provider.GetRequiredService<HangfireLogAttribute>())
                 .UseFilter(new AutomaticRetryAttribute()
                 {
